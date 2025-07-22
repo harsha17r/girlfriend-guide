@@ -9,22 +9,22 @@ function updateDepth(book, newPage) {
 		newPage = newPage || page;
 
 	if (newPage>3)
-		$('.sj-book .p2 .depth').css({
+		$('.gg-book .p2 .depth').css({
 			width: depthWidth,
 			left: 20 - depthWidth
 		});
 	else
-		$('.sj-book .p2 .depth').css({width: 0});
+		$('.gg-book .p2 .depth').css({width: 0});
 
 		depthWidth = 16*Math.min(1, (pages-page)*2/pages);
 
 	if (newPage<pages-3)
-		$('.sj-book .p29 .depth').css({
+		$('.gg-book .p29 .depth').css({
 			width: depthWidth,
 			right: 20 - depthWidth
 		});
 	else
-		$('.sj-book .p29 .depth').css({width: 0});
+		$('.gg-book .p29 .depth').css({width: 0});
 
 }
 
@@ -32,7 +32,7 @@ function loadPage(page) {
 
 	$.ajax({url: 'pages/page' + page + '.html'}).
 		done(function(pageHtml) {
-			$('.sj-book .p' + page).html(pageHtml.replace('samples/steve-jobs/', ''));
+			$('.gg-book .p' + page).html(pageHtml.replace('samples/steve-jobs/', ''));
 		});
 
 }
@@ -70,7 +70,7 @@ function getViewNumber(book, page) {
 
 function zoomHandle(e) {
 
-	if ($('.sj-book').data().zoomIn)
+	if ($('.gg-book').data().zoomIn)
 		zoomOut();
 	else if (e.target && $(e.target).hasClass('zoom-this')) {
 		zoomThis($(e.target));
@@ -94,7 +94,7 @@ function zoomThis(pic) {
 		completeTransition = function() {
 			$('#book-zoom').unbind(transitionEnd);
 
-			if ($('.sj-book').data().zoomIn) {
+			if ($('.gg-book').data().zoomIn) {
 				tmpContainer.appendTo($('body'));
 
 				$('body').css({'overflow': 'hidden'});
@@ -108,9 +108,9 @@ function zoomThis(pic) {
 			}
 		};
 
-		$('.sj-book').data().zoomIn = true;
+		$('.gg-book').data().zoomIn = true;
 
-		$('.sj-book').turn('disable', true);
+		$('.gg-book').turn('disable', true);
 
 		$(window).resize(zoomOut);
 		
@@ -160,12 +160,12 @@ function zoomOut() {
 	var transitionEnd = $.cssTransitionEnd(),
 		completeTransition = function(e) {
 			$('#book-zoom').unbind(transitionEnd);
-			$('.sj-book').turn('disable', false);
+			$('.gg-book').turn('disable', false);
 			$('body').css({'overflow': 'auto'});
 			moveBar(false);
 		};
 
-	$('.sj-book').data().zoomIn = false;
+	$('.gg-book').data().zoomIn = false;
 
 	$(window).unbind('resize', zoomOut);
 

@@ -54,7 +54,7 @@
 <div class="center-viewport">
   <div id="canvas">
 	<div id="book-zoom">
-		<div class="sj-book">
+		<div class="gg-book">
 			<div depth="5" class="hard"> <div class="side"></div> </div>
 			<div depth="5" class="hard front-side"> <div class="depth"></div> </div>
 			<div class="own-size"></div>
@@ -74,7 +74,7 @@
 
 function loadApp() {
 	
-	var flipbook = $('.sj-book');
+	var flipbook = $('.gg-book');
 
 	// Check if the CSS was already loaded
 	
@@ -89,7 +89,7 @@ function loadApp() {
 
 		var data = $(this).data(),
 			step = 30,
-			flipbook = $('.sj-book'),
+			flipbook = $('.gg-book'),
 			actualPos = $('#slider').slider('value')*step;
 
 		if (typeof(data.scrollX)==='undefined') {
@@ -141,7 +141,7 @@ function loadApp() {
 		slide: function(event, ui) {
 
 			// setPreview(ui.value);
-			$('.sj-book').turn('page', Math.max(1, ui.value*2 - 2));
+			$('.gg-book').turn('page', Math.max(1, ui.value*2 - 2));
 
 
 		},
@@ -151,7 +151,7 @@ function loadApp() {
 			// if (window._thumbPreview)
 			// 	_thumbPreview.removeClass('show');
 			
-			$('.sj-book').turn('page', Math.max(1, $(this).slider('value')*2 - 2));
+			$('.gg-book').turn('page', Math.max(1, $(this).slider('value')*2 - 2));
 
 		}
 	});
@@ -165,15 +165,15 @@ function loadApp() {
 			var page = parts[1];
 
 			if (page!==undefined) {
-				if ($('.sj-book').turn('is'))
-					$('.sj-book').turn('page', page);
+				if ($('.gg-book').turn('is'))
+					$('.gg-book').turn('page', page);
 			}
 
 		},
 		nop: function(path) {
 
-			if ($('.sj-book').turn('is'))
-				$('.sj-book').turn('page', 1);
+			if ($('.gg-book').turn('is'))
+				$('.gg-book').turn('page', 1);
 		}
 	});
 
@@ -186,12 +186,12 @@ function loadApp() {
 		switch (e.keyCode) {
 			case previous:
 
-				$('.sj-book').turn('previous');
+				$('.gg-book').turn('previous');
 
 			break;
 			case next:
 				
-				$('.sj-book').turn('next');
+				$('.gg-book').turn('next');
 
 			break;
 		}
@@ -243,14 +243,14 @@ function loadApp() {
 				updateDepth(book, page);
 				
 				if (page>=2)
-					$('.sj-book .p2').addClass('fixed');
+					$('.gg-book .p2').addClass('fixed');
 				else
-					$('.sj-book .p2').removeClass('fixed');
+					$('.gg-book .p2').removeClass('fixed');
 
 				if (page<book.turn('pages'))
-					$('.sj-book .p29').addClass('fixed');
+					$('.gg-book .p29').addClass('fixed');
 				else
-					$('.sj-book .p29').removeClass('fixed');
+					$('.gg-book .p29').removeClass('fixed');
 
 				Hash.go('page/'+page).update();
 					

@@ -29,7 +29,7 @@ body, ul, table, form{
     max-height: 600px;
 }
 
-.sj-book {
+.gg-book {
     width: 100%;
     height: 100%;
     max-width: 960px;
@@ -46,16 +46,23 @@ body, ul, table, form{
 }
 
 #slider-bar {
-  /* Center the slider below the book */
-  margin: 40px 0 0 0;
-  padding: 0;
-  width: 80%;
+  position: fixed;
+  left: 50%;
+  bottom: 20px; /* match watermark's margin */
+  transform: translateX(-50%);
+  width: 260px;   /* adjust to match watermark width */
+  height: 48px;   /* adjust to match watermark height */
   display: flex;
+  align-items: center;
   justify-content: center;
+  z-index: 10;    /* ensure it sits above the watermark */
+  background: transparent;
+  margin: 0;
+  padding: 0;
 }
  
 
-.sj-book h1{
+.gg-book h1{
 	font-family: "Stempel-Garamond-W01-Roman";
 	font-size: 38px;
 	font-weight: lighter;
@@ -66,7 +73,7 @@ body, ul, table, form{
 	-webkit-text-stroke-width: 0.005em;
 }
 
-.sj-book h2{
+.gg-book h2{
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     color:#444;
     font-size:16px;
@@ -74,31 +81,31 @@ body, ul, table, form{
 	font-weight: 400;
 }
 
-.sj-book .book-content{
+.gg-book .book-content{
 	font-family: "Stempel-Garamond-W01-Roman";
 	font-size:16px;
 	margin:70px 40px;
 }
 
-.sj-book blockquote{
+.gg-book blockquote{
 	color:#586078;
 	margin:10px 0;
 	font-style:italic;
 }
 
-.sj-book blockquote:before{
+.gg-book blockquote:before{
 	content: "\201C";
 	color:#333D53;
 	font-size:20px;
 }
 
-.sj-book blockquote:after{
+.gg-book blockquote:after{
 	content: "\201D";
 	color:#333D53;
 	font-size:20px;
 }
 
-.sj-book cite{
+.gg-book cite{
 	font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;
 	font-size:13px;
 	font-weight:200;
@@ -106,24 +113,24 @@ body, ul, table, form{
 	color:#666;
 }
 
-.sj-book .book-content .center-pic{
+.gg-book .book-content .center-pic{
 	margin:0;
 	text-indent:0;
 	text-align:center;
 }
 
-.sj-book .zoom-this:hover{
+.gg-book .zoom-this:hover{
 	opacity:0.9;
 	cursor:pointer;
 }
 
-.sj-book .book-content p{
+.gg-book .book-content p{
 	text-indent: 18px;
 	margin: 20px 0;
 	line-height: 22px;
 }
 
-.sj-book .left-pic{
+.gg-book .left-pic{
 	float:left;
 	margin-top:15px;
 	margin-right:15px;
@@ -138,7 +145,7 @@ body, ul, table, form{
 	transition:margin-left 0.2s ease-in-out;
 }
 
-.sj-book .shadow{
+.gg-book .shadow{
 	-webkit-transition: -webkit-box-shadow 0.5s;
 	-moz-transition: -moz-box-shadow 0.5s;
 	-o-transition: -webkit-box-shadow 0.5s;
@@ -151,7 +158,7 @@ body, ul, table, form{
 	box-shadow: none;
 }
 
-.sj-book .page{
+.gg-book .page{
 	-webkit-box-shadow: none;
 	-moz-box-shadow: none;
 	-ms-box-shadow: none;
@@ -177,20 +184,20 @@ body, ul, table, form{
 	box-shadow:0 0 20px #999;
 }
 
-.sj-book .p1,
-.sj-book .p2,
-.sj-book .p3, 
-.sj-book .p29, 
-.sj-book .p30{
+.gg-book .p1,
+.gg-book .p2,
+.gg-book .p3, 
+.gg-book .p29, 
+.gg-book .p30{
 	/*background: linear-gradient(135deg, #D85354 0%, #943A3A 100%);*/
 	background-image:url(../pics/book-covers.png) !important;
 }
 
-.sj-book .p1{
+.gg-book .p1{
 	background-position:0 0;
 }
 
-.sj-book .p1 .side{
+.gg-book .p1 .side{
 	width:5px;
 	height:600px;
 	position:absolute;
@@ -219,11 +226,11 @@ body, ul, table, form{
 
 }
 
-.sj-book-transform div[page="1"] > div, .sj-book-transform div[page="2"] > div{
+.gg-book-transform div[page="1"] > div, .gg-book-transform div[page="2"] > div{
 	overflow:visible !important;
 }
 
-.sj-book .depth{
+.gg-book .depth{
 	background-image:url(../pics/pages-depth.png);
 	position:absolute;
 	top:7px;
@@ -233,34 +240,34 @@ body, ul, table, form{
     overflow: hidden;
 }
 
-.sj-book .front-side .depth{
+.gg-book .front-side .depth{
 	left:4px;
 	background-position:0 0;
 }
 
-.sj-book .back-side .depth{
+.gg-book .back-side .depth{
 	right:4px;
 	background-position:right 0;
 }
 
 
-.sj-book .p2{
+.gg-book .p2{
 	background-position:-480px 0 !important;
 }
 
-.sj-book .p3{
+.gg-book .p3{
 	background-position:-1920px 0 !important;
 }
 
-.sj-book .p29{
+.gg-book .p29{
 	background-position:-960px 0 !important;
 }
 
-.sj-book .p30{
+.gg-book .p30{
 	background-position:-1440px 0 !important;
 }
 
-.sj-book .hard{
+.gg-book .hard{
 	width:480px;
 	height:600px;
 	background-color:white;
@@ -270,21 +277,21 @@ body, ul, table, form{
 	box-shadow:none;
 }
 
-.sj-book .page-wrapper{
+.gg-book .page-wrapper{
 	-webkit-perspective:2000px;
 	-moz-perspective: 2000px;
 	-ms-perspective: 2000px;
 	perspective: 2000px;
 }
 
-.sj-book .own-size{
+.gg-book .own-size{
 	width:460px;
 	height:582px;
 	background-color:white;
 	overflow:hidden;
 }
 
-.sj-book .even {
+.gg-book .even {
   background: -webkit-gradient(linear, left top, right top, color-stop(0.95, #FDF7E6), color-stop(1, #EAD9B6));
   background-image: -webkit-linear-gradient(left, #FDF7E6 95%, #EAD9B6 100%);
   background-image: -moz-linear-gradient(left, #FDF7E6 95%, #EAD9B6 100%);
@@ -293,7 +300,7 @@ body, ul, table, form{
   background-image: linear-gradient(to right, #FDF7E6 95%, #EAD9B6 100%);
 }
 
-.sj-book .odd {
+.gg-book .odd {
   background: -webkit-gradient(linear, right top, left top, color-stop(0.95, #FDF7E6), color-stop(1, #E1CFA8));
   background-image: -webkit-linear-gradient(right, #FDF7E6 95%, #E1CFA8 100%);
   background-image: -moz-linear-gradient(right, #FDF7E6 95%, #E1CFA8 100%);
@@ -302,7 +309,7 @@ body, ul, table, form{
   background-image: linear-gradient(to left, #FDF7E6 95%, #E1CFA8 100%);
 }
 
-.sj-book .loader{
+.gg-book .loader{
 	background-image:url(../pics/loader.gif);
 	width:22px;
 	height:22px;
@@ -311,7 +318,7 @@ body, ul, table, form{
 	left:219px;
 }
 
-.sj-book .page-number{
+.gg-book .page-number{
 	color:#999;
 	width:100%;
 	bottom:25px;
@@ -322,23 +329,23 @@ body, ul, table, form{
 	font-size:11px;
 }
 
-.sj-book .table-contents{
+.gg-book .table-contents{
 	font-size:16px;
 	width:300px;
 	margin:80px auto;
 	color:#ccc;
 }
 
-.sj-book .table-contents li{
+.gg-book .table-contents li{
 	list-style:none;
 	line-height:25px;
 }
 
-.sj-book .table-contents span{
+.gg-book .table-contents span{
 	float:right;
 }
 
-.sj-book .table-contents a{
+.gg-book .table-contents a{
 	float:left;
 	width:100%;
 	clear:both;
@@ -348,7 +355,7 @@ body, ul, table, form{
 	padding:0 10px;
 }
 
-.sj-book .table-contents a:hover{
+.gg-book .table-contents a:hover{
 	background:#CAD1EE;
 	float:left;
 	width:100%;
@@ -361,12 +368,12 @@ body, ul, table, form{
 	border-radius:10px;
 }
 
-.sj-book .book-content .capital,
-.sj-book .book-content .no-indent{
+.gg-book .book-content .capital,
+.gg-book .book-content .no-indent{
 	text-indent: 0;
 }
 
-.sj-book .capital:first-letter {
+.gg-book .capital:first-letter {
     display:block;
     float:left;
     font-size: 300%;
@@ -376,41 +383,41 @@ body, ul, table, form{
 	margin-left:18px;
 }
 
-.ie8 .sj-book .even,
-.ie9 .sj-book .even{
+.ie8 .gg-book .even,
+.ie9 .gg-book .even{
 	background-image:url(../pics/gradient-page-left.jpg);
 	background-position:right top;
 	background-repeat:repeat-y;
 }
 
-.ie8 .sj-book .odd,
-.ie9 .sj-book .odd{
+.ie8 .gg-book .odd,
+.ie9 .gg-book .odd{
 	background-image:url(../pics/gradient-page-right.jpg);
 	background-position:left top;
 	background-repeat:repeat-y;
 }
 
-.sj-book .hard,
-.sj-book .hard.front-side,
-.sj-book .hard.back-side {
+.gg-book .hard,
+.gg-book .hard.front-side,
+.gg-book .hard.back-side {
     border-radius: 18px; /* Adjust px value for more/less curve */
     overflow: hidden;    /* Ensures content stays within the curve */
   }
 
-.sj-book .own-size,
-.sj-book .even,
-.sj-book .odd {
+.gg-book .own-size,
+.gg-book .even,
+.gg-book .odd {
     border-radius: 18px; /* Try matching the cover's curve */
     overflow: hidden;
   }
 
-.sj-book .page {
+.gg-book .page {
     border-radius: 3px;
     overflow: hidden;
 	box-shadow: none !important;
 }
 
-.sj-book .side {
+.gg-book .side {
     border-radius: 16px; /* Match the cover's curve */
     overflow: hidden;
   }
