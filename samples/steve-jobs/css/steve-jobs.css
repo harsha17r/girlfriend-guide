@@ -1,4 +1,4 @@
-/* Steve jobs' book */
+/*  book */
 
 @font-face {
   font-family: 'Stempel-Garamond-W01-Roman';
@@ -43,6 +43,15 @@ body, ul, table, form{
 	-ms-transition: -ms-transform 1s;
 	-o-transition: -o-transform 1s;
 	transition: transform 1s;
+}
+
+#slider-bar {
+  /* Center the slider below the book */
+  margin: 40px 0 0 0;
+  padding: 0;
+  width: 80%;
+  display: flex;
+  justify-content: center;
 }
  
 
@@ -405,4 +414,13 @@ body, ul, table, form{
     border-radius: 16px; /* Match the cover's curve */
     overflow: hidden;
   }
+
+.center-viewport {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;   /* vertical centering */
+  align-items: center;       /* horizontal centering */
+  min-height: 100vh;         /* full viewport height */
+  width: 100vw;              /* full viewport width */
+}
 

@@ -51,7 +51,8 @@
 }();
 </script>
 
-<div id="canvas">
+<div class="center-viewport">
+  <div id="canvas">
 	<div id="book-zoom">
 		<div class="sj-book">
 			<div depth="5" class="hard"> <div class="side"></div> </div>
@@ -62,9 +63,10 @@
 			<div class="hard p30"></div>
 		</div>
 	</div>
-	<div id="slider-bar" class="turnjs-slider">
-		<div id="slider"></div>
-	</div>
+  </div>
+  <div id="slider-bar" class="turnjs-slider">
+	<div id="slider"></div>
+  </div>
 </div>
 
 
@@ -125,12 +127,12 @@ function loadApp() {
 
 		start: function(event, ui) {
 
-			if (!window._thumbPreview) {
-				_thumbPreview = $('<div />', {'class': 'thumbnail'}).html('<div></div>');
-				setPreview(ui.value);
-				_thumbPreview.appendTo($(ui.handle));
-			} else
-				setPreview(ui.value);
+			// if (!window._thumbPreview) {
+			// 	_thumbPreview = $('<div />', {'class': 'thumbnail'}).html('<div></div>');
+			// 	setPreview(ui.value);
+			// 	_thumbPreview.appendTo($(ui.handle));
+			// } else
+			// 	setPreview(ui.value);
 
 			moveBar(false);
 
@@ -138,14 +140,16 @@ function loadApp() {
 
 		slide: function(event, ui) {
 
-			setPreview(ui.value);
+			// setPreview(ui.value);
+			$('.sj-book').turn('page', Math.max(1, ui.value*2 - 2));
+
 
 		},
 
 		stop: function() {
 
-			if (window._thumbPreview)
-				_thumbPreview.removeClass('show');
+			// if (window._thumbPreview)
+			// 	_thumbPreview.removeClass('show');
 			
 			$('.sj-book').turn('page', Math.max(1, $(this).slider('value')*2 - 2));
 

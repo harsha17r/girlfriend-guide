@@ -190,8 +190,7 @@ function moveBar(yes) {
 }
 
 function setPreview(view) {
-	_thumbPreview.hide();
-	return;
+
 	var previewWidth = 115,
 		previewHeight = 73,
 		previewSrc = 'pages/preview.jpg',
