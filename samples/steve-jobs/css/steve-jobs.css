@@ -173,8 +173,8 @@ body, ul, table, form{
 .sj-book .p3, 
 .sj-book .p111, 
 .sj-book .p112{
-	background: linear-gradient(135deg, #D85354 0%, #943A3A 100%);
-	background-image:url(../pics/book-covers.jpg) !important;
+	/*background: linear-gradient(135deg, #D85354 0%, #943A3A 100%);*/
+	background-image:url(../pics/book-covers.png) !important;
 }
 
 .sj-book .p1{
@@ -384,7 +384,7 @@ body, ul, table, form{
 .sj-book .hard,
 .sj-book .hard.front-side,
 .sj-book .hard.back-side {
-    border-radius: 20px; /* Adjust px value for more/less curve */
+    border-radius: 18px; /* Adjust px value for more/less curve */
     overflow: hidden;    /* Ensures content stays within the curve */
   }
 
@@ -396,8 +396,9 @@ body, ul, table, form{
   }
 
 .sj-book .page {
-    border-radius: 12px;
+    border-radius: 3px;
     overflow: hidden;
+	box-shadow: none !important;
 }
 
 .sj-book .side {
