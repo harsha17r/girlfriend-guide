@@ -123,7 +123,7 @@ function loadApp() {
 
 	$( "#slider" ).slider({
 		min: 1,
-		max: 100,
+		max: 90,
 
 		start: function(event, ui) {
 
@@ -268,6 +268,10 @@ function loadApp() {
 				
 				$('#slider').slider('value', getViewNumber(book, page));
 
+				// Debug logging for slider value and max
+				console.log('Slider value set to:', getViewNumber(book, page));
+				console.log('Slider max is:', $('#slider').slider('option', 'max'));
+
 				book.turn('center');
 
 			},
@@ -323,8 +327,8 @@ $('#canvas').css({visibility: 'hidden'});
 yepnope({
 	test : Modernizr.csstransforms,
 	yep: ['../../lib/turn.min.js'],
-	nope: ['../../lib/turn.html4.min.js', 'css/jquery.ui.html4.css', 'css/steve-jobs-html4.css'],
-	both: ['js/steve-jobs.js', 'css/jquery.ui.css', 'css/steve-jobs.css'],
+	nope: ['../../lib/turn.html4.min.js', 'css/jquery.ui.html4.css', 'css/girlfriend-guide-html4.css'],
+	both: ['js/girlfriend-guide.js', 'css/jquery.ui.css', 'css/girlfriend-guide.css'],
 	complete: loadApp
 });
 

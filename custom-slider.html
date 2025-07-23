@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Custom Modern Slider Demo</title>
+  <style>
+    /* --- Slider Container --- */
+    .custom-slider-bar {
+      position: fixed;
+      left: 50%;
+      bottom: 32px;
+      transform: translateX(-50%);
+      width: 420px; /* Change for slider width */
+      height: 56px; /* Change for slider height */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 100;
+      background: rgba(255,255,255,0.98); /* Slider background */
+      border-radius: 16px; /* Rounded corners */
+      box-shadow: 0 2px 16px rgba(0,0,0,0.13);
+      margin: 0;
+      padding: 0 20px;
+    }
+
+    /* --- Slider Track --- */
+    .custom-slider-track {
+      position: relative;
+      width: 100%;
+      height: 12px;
+      background: rgba(0,0,0,0.18); /* Track color */
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .custom-slider-track:hover {
+      background: rgba(0,0,0,0.28);
+    }
+
+    /* --- Slider Range (filled part) --- */
+    .custom-slider-range {
+      position: absolute;
+      height: 100%;
+      background: linear-gradient(90deg, #4e54c8, #8f94fb); /* Range color */
+      border-radius: 6px 0 0 6px;
+      pointer-events: none;
+      transition: width 0.2s;
+    }
+
+    /* --- Slider Handle --- */
+    .custom-slider-handle {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 36px; /* Handle width */
+      height: 36px; /* Handle height */
+      background: #222; /* Handle color */
+      border-radius: 50%;
+      border: 3px solid #fff;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+      transform: translate(-50%, -50%);
+      cursor: grab;
+      transition: box-shadow 0.2s, background 0.2s;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .custom-slider-handle:active {
+      box-shadow: 0 4px 16px rgba(0,0,0,0.22);
+      background: #444;
+      cursor: grabbing;
+    }
+    .custom-slider-handle:focus {
+      outline: 2px solid #4e54c8;
+      outline-offset: 2px;
+    }
+
+    /* --- Tooltip/Preview --- */
+    .custom-slider-tooltip {
+      position: absolute;
+      left: 50%;
+      top: -38px;
+      transform: translateX(-50%);
+      background: #fff;
+      color: #222;
+      padding: 4px 12px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.13);
+      font-size: 15px;
+      font-family: inherit;
+      white-space: nowrap;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.18s, top 0.18s;
+      z-index: 10;
+    }
+    .custom-slider-handle:hover .custom-slider-tooltip,
+    .custom-slider-handle:focus .custom-slider-tooltip {
+      opacity: 1;
+      top: -48px;
+    }
+
+    /* --- Responsive --- */
+    @media (max-width: 600px) {
+      .custom-slider-bar {
+        width: 98vw;
+        min-width: 0;
+        padding: 0 4vw;
+      }
+    }
+  </style>
+</head>
+<body style="background: #f5f6fa; min-height: 100vh;">
+
+  <!-- Slider Bar Container -->
+  <div class="custom-slider-bar">
+    <!-- Slider Track -->
+    <div class="custom-slider-track" id="sliderTrack">
+      <!-- Filled Range -->
+      <div class="custom-slider-range" id="sliderRange"></div>
+      <!-- Handle -->
+      <div class="custom-slider-handle" id="sliderHandle" tabindex="0" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" role="slider">
+        <!-- Tooltip/Preview -->
+        <span class="custom-slider-tooltip" id="sliderTooltip">50</span>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // --- Custom Slider Logic ---
+    // You can copy this code into your project and adjust styles as needed.
+
+    // --- Configurable Properties ---
+    const min = 0;      // Minimum slider value
+    const max = 100;    // Maximum slider value
+    let value = 50;     // Initial value
+
+    // --- DOM Elements ---
+    const track = document.getElementById('sliderTrack');
+    const range = document.getElementById('sliderRange');
+    const handle = document.getElementById('sliderHandle');
+    const tooltip = document.getElementById('sliderTooltip');
+
+    // --- Helper: Set slider visuals based on value ---
+    function updateSlider(val) {
+      const percent = (val - min) / (max - min);
+      const trackWidth = track.offsetWidth;
+      const handleX = percent * trackWidth;
+      // Update range width
+      range.style.width = `${percent * 100}%`;
+      // Update handle position
+      handle.style.left = `${handleX}px`;
+      // Update tooltip
+      tooltip.textContent = val;
+      // Update ARIA
+      handle.setAttribute('aria-valuenow', val);
+    }
+
+    // --- Mouse/Touch Drag Logic ---
+    let dragging = false;
+    function onPointerDown(e) {
+      dragging = true;
+      document.body.style.userSelect = 'none';
+      onPointerMove(e);
+    }
+    function onPointerMove(e) {
+      if (!dragging) return;
+      const rect = track.getBoundingClientRect();
+      let x = (e.touches ? e.touches[0].clientX : e.clientX) - rect.left;
+      x = Math.max(0, Math.min(x, rect.width));
+      const percent = x / rect.width;
+      value = Math.round(min + percent * (max - min));
+      updateSlider(value);
+    }
+    function onPointerUp() {
+      dragging = false;
+      document.body.style.userSelect = '';
+    }
+
+    // --- Click on Track ---
+    track.addEventListener('mousedown', function(e) {
+      onPointerDown(e);
+      window.addEventListener('mousemove', onPointerMove);
+      window.addEventListener('mouseup', onPointerUp, { once: true });
+    });
+    track.addEventListener('touchstart', function(e) {
+      onPointerDown(e);
+      window.addEventListener('touchmove', onPointerMove);
+      window.addEventListener('touchend', onPointerUp, { once: true });
+    });
+
+    // --- Drag Handle ---
+    handle.addEventListener('mousedown', function(e) {
+      e.stopPropagation();
+      onPointerDown(e);
+      window.addEventListener('mousemove', onPointerMove);
+      window.addEventListener('mouseup', onPointerUp, { once: true });
+    });
+    handle.addEventListener('touchstart', function(e) {
+      e.stopPropagation();
+      onPointerDown(e);
+      window.addEventListener('touchmove', onPointerMove);
+      window.addEventListener('touchend', onPointerUp, { once: true });
+    });
+
+    // --- Keyboard Accessibility ---
+    handle.addEventListener('keydown', function(e) {
+      if (e.key === 'ArrowLeft' || e.key === 'ArrowDown') {
+        value = Math.max(min, value - 1);
+        updateSlider(value);
+        e.preventDefault();
+      } else if (e.key === 'ArrowRight' || e.key === 'ArrowUp') {
+        value = Math.min(max, value + 1);
+        updateSlider(value);
+        e.preventDefault();
+      }
+    });
+
+    // --- Initialize ---
+    window.addEventListener('resize', () => updateSlider(value));
+    updateSlider(value);
+
+    // --- For integration: you can listen to value changes here ---
+    // Example: call a callback or update another element
+    // function onSliderChange(val) { ... }
+  </script>
+</body>
+</html> 

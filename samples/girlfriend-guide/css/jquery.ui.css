@@ -2,6 +2,7 @@
 	width:600px;
 	height:8px;
 	background:rgba(0,0,0, 0.2);
+	cursor:grab;
 	-webkit-border-radius:5px;
 	-moz-border-radius:5px;
 	-o-border-radius:5px;
@@ -101,7 +102,6 @@
 	z-index:0;
 	width:80px;
 	height: 8px;
-	cursor: default;
 	-webkit-border-radius:5px;
 	-moz-border-radius:5px;
 	-ms-border-radius:5px;
@@ -111,11 +111,13 @@
 .turnjs-slider .ui-slider-horizontal {
 	height: 8px;
 	width:520px;
-	margin-left:39px;
+	margin-left:40px;
+	margin-right:40px;
 }
 
 .turnjs-slider .ui-slider-horizontal .ui-slider-handle {
-	margin-left:-40px;
+	margin-left:0px;
+	margin-right:0px;
 	margin-top:-1px;
 }
 
@@ -134,7 +136,7 @@
 }
 
 .turnjs-slider .ui-state-hover{
-	opacity:0.4;
+	opacity:0.5;
 }
 
 .turnjs-slider .ui-state-active{

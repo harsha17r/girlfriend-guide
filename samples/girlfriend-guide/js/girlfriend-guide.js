@@ -32,7 +32,7 @@ function loadPage(page) {
 
 	$.ajax({url: 'pages/page' + page + '.html'}).
 		done(function(pageHtml) {
-			$('.gg-book .p' + page).html(pageHtml.replace('samples/steve-jobs/', ''));
+			$('.gg-book .p' + page).html(pageHtml.replace('samples/girlfriend-guide/', ''));
 		});
 
 }
@@ -137,7 +137,6 @@ function zoomThis(pic) {
 			};
 
 			$('.samples .bar').css({visibility: 'hidden'});
-			$('#slider-bar').hide();
 			
 		
 			$('#book-zoom').transform(
@@ -174,7 +173,6 @@ function zoomOut() {
 	$('.zoom-pic').remove();
 	$('#book-zoom').transform('scale(1, 1)');
 	$('.samples .bar').css({visibility: 'visible'});
-	$('#slider-bar').show();
 
 	if (transitionEnd)
 		$('#book-zoom').bind(transitionEnd, completeTransition);
@@ -235,3 +233,40 @@ function isChrome() {
 	return navigator.userAgent.indexOf('Chrome')!=-1;
 
 }
+
+// --- Custom Minimal Slider Logic ---
+$(function() {
+  var $customSlider = $('#custom-slider');
+  var $flipbook = $('.gg-book');
+
+  if (!$customSlider.length || !$flipbook.length) return;
+
+  // Helper: get total pages
+  function getTotalPages() {
+    return $flipbook.turn ? $flipbook.turn('pages') : 30;
+  }
+
+  // Update slider max if book pages change
+  $customSlider.attr('max', getTotalPages());
+
+  // When user slides, update the book page (live preview)
+  $customSlider.on('input', function() {
+    var page = parseInt(this.value, 10);
+    // Clamp to valid range
+    page = Math.max(1, Math.min(getTotalPages(), page));
+    $flipbook.turn('page', page);
+  });
+
+  // When book page changes, update slider position
+  $flipbook.on('turned', function(e, page) {
+    $customSlider.val(page);
+  });
+
+  // Also update slider on book init
+  $flipbook.on('start', function(e, pageObj) {
+    $customSlider.val($flipbook.turn('page'));
+  });
+
+  // On load, set slider to current page
+  $customSlider.val($flipbook.turn('page'));
+});
