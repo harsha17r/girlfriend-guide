@@ -171,8 +171,8 @@ body, ul, table, form{
 .gg-book .p1,
 .gg-book .p2,
 .gg-book .p3, 
-.gg-book .p29, 
-.gg-book .p30{
+.gg-book .p39, 
+.gg-book .p40{
 	/*background: linear-gradient(135deg, #D85354 0%, #943A3A 100%);*/
 	background-image:url(../pics/book-covers.png) !important;
 }
@@ -243,11 +243,11 @@ body, ul, table, form{
 	background-position:-1920px 0 !important;
 }
 
-.gg-book .p29{
+.gg-book .p39{
 	background-position:-960px 0 !important;
 }
 
-.gg-book .p30{
+.gg-book .p40{
 	background-position:-1440px 0 !important;
 }
 

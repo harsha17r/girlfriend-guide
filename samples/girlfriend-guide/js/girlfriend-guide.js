@@ -19,12 +19,12 @@ function updateDepth(book, newPage) {
 		depthWidth = 16*Math.min(1, (pages-page)*2/pages);
 
 	if (newPage<pages-3)
-		$('.gg-book .p29 .depth').css({
+		$('.gg-book .p39 .depth').css({
 			width: depthWidth,
 			right: 20 - depthWidth
 		});
 	else
-		$('.gg-book .p29 .depth').css({width: 0});
+		$('.gg-book .p39 .depth').css({width: 0});
 
 }
 

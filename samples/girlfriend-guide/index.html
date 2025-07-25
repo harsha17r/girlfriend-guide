@@ -94,8 +94,8 @@
 			<div depth="5" class="hard front-side"> <div class="depth"></div> </div>
 			<div class="own-size"></div>
 			<div class="own-size even"></div>
-			<div class="hard fixed back-side p29"> <div class="depth"></div> </div>
-			<div class="hard p30"></div>
+			<div class="hard fixed back-side p39"> <div class="depth"></div> </div>
+			<div class="hard p40"></div>
 		</div>
 	</div>
   </div>
@@ -123,7 +123,7 @@ function loadApp() {
 	$('#book-zoom').mousewheel(function(event, delta, deltaX, deltaY) {
 
 		var data = $(this).data(),
-			step = 30,
+			step = 40,
 			flipbook = $('.gg-book'),
 			actualPos = $('#slider').slider('value')*step;
 
@@ -244,7 +244,7 @@ function loadApp() {
 		autoCenter: true,
 		gradients: true,
 		duration: 1000,
-		pages: 30,
+		pages: 40,
 		when: {
 			turning: function(e, page, view) {
 				
@@ -283,9 +283,9 @@ function loadApp() {
 					$('.gg-book .p2').removeClass('fixed');
 
 				if (page<book.turn('pages'))
-					$('.gg-book .p29').addClass('fixed');
+					$('.gg-book .p39').addClass('fixed');
 				else
-					$('.gg-book .p29').removeClass('fixed');
+					$('.gg-book .p39').removeClass('fixed');
 
 				Hash.go('page/'+page).update();
 					
