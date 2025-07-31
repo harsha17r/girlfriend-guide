@@ -6,10 +6,11 @@
 <!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->
 <head>
 <script src="https://code.jquery.com/jquery-1.7.0.min.js"></script>
-<script type="text/javascript" src="../../extras/jquery-ui-1.8.20.custom.min.js"></script>
-<script type="text/javascript" src="../../extras/jquery.mousewheel.min.js"></script>
-<script type="text/javascript" src="../../extras/modernizr.2.5.3.min.js"></script>
-<script type="text/javascript" src="../../lib/hash.js"></script>
+<script type="text/javascript" src="extras/jquery-ui-1.8.20.custom.min.js"></script>
+<script type="text/javascript" src="extras/jquery.mousewheel.min.js"></script>
+<script type="text/javascript" src="extras/modernizr.2.5.3.min.js"></script>
+<script type="text/javascript" src="lib/hash.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/yepnope/1.5.4/yepnope.min.js"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- Custom Fonts -->
@@ -390,8 +391,8 @@ $('#canvas').css({visibility: 'hidden'});
 
 yepnope({
 	test : Modernizr.csstransforms,
-	yep: ['../../lib/turn.min.js'],
-	nope: ['../../lib/turn.html4.min.js', 'css/jquery.ui.html4.css', 'css/girlfriend-guide-html4.css'],
+	yep: ['lib/turn.min.js'],
+	nope: ['lib/turn.html4.min.js', 'css/jquery.ui.html4.css', 'css/girlfriend-guide-html4.css'],
 	both: ['js/girlfriend-guide.js', 'css/jquery.ui.css', 'css/girlfriend-guide.css'],
 	complete: loadApp
 });
