@@ -1,0 +1,406 @@
+<div class="book-content">
+    <div class="xo-game-container" style="position: absolute; top: 0; left: 0; width: 100%; height: 89%; margin: 0 !important; display: flex; flex-direction: column; align-items: center; justify-content: center; font-family: 'QEJohnWilliams', serif;">
+        
+        <!-- Game Title -->
+        
+        <!-- Game Grid Container -->
+        <div class="xo-grid-container" style="position: relative; width: 280px; height: 280px; margin-bottom: 20px;">
+            <!-- SVG Grid Background -->
+            <svg class="xo-grid-svg" width="280" height="280" viewBox="0 0 280 280" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+                <!-- Horizontal Lines -->
+                <g class="grid-line horizontal-line-1" style="opacity: 0;">
+                    <path d="M20 93 L260 93" stroke="#4A45AA" stroke-width="3" fill="none" stroke-linecap="round" stroke-dasharray="0" pathLength="1"/>
+                </g>
+                <g class="grid-line horizontal-line-2" style="opacity: 0;">
+                    <path d="M20 187 L260 187" stroke="#4A45AA" stroke-width="3" fill="none" stroke-linecap="round" stroke-dasharray="0" pathLength="1"/>
+                </g>
+                <!-- Vertical Lines -->
+                <g class="grid-line vertical-line-1" style="opacity: 0;">
+                    <path d="M93 20 L93 260" stroke="#4A45AA" stroke-width="3" fill="none" stroke-linecap="round" stroke-dasharray="0" pathLength="1"/>
+                </g>
+                <g class="grid-line vertical-line-2" style="opacity: 0;">
+                    <path d="M187 20 L187 260" stroke="#4A45AA" stroke-width="3" fill="none" stroke-linecap="round" stroke-dasharray="0" pathLength="1"/>
+                </g>
+            </svg>
+            
+            <!-- Strike Line SVG -->
+            <svg class="strike-svg" width="280" height="280" viewBox="0 0 280 280" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none;">
+                <line class="strike-line" x1="0" y1="0" x2="0" y2="0" stroke="#F69F9B" stroke-width="4" stroke-linecap="round" opacity="0" style="stroke-dasharray: 300; stroke-dashoffset: 300; transition: stroke-dashoffset 0.6s ease-out, opacity 0.1s ease-out;"/>
+            </svg>
+            
+            <!-- Game Cells -->
+            <div class="xo-grid" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: grid; grid-template-columns: 1fr 1fr 1fr; grid-template-rows: 1fr 1fr 1fr; gap: 0;">
+                <button class="xo-cell" data-cell="0" style="background: none; border: none; font-family: 'QEJohnWilliams', serif; font-size: 45px; color: #4A45AA; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.2s ease;"></button>
+                <button class="xo-cell" data-cell="1" style="background: none; border: none; font-family: 'QEJohnWilliams', serif; font-size: 45px; color: #4A45AA; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.2s ease;"></button>
+                <button class="xo-cell" data-cell="2" style="background: none; border: none; font-family: 'QEJohnWilliams', serif; font-size: 45px; color: #4A45AA; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.2s ease;"></button>
+                <button class="xo-cell" data-cell="3" style="background: none; border: none; font-family: 'QEJohnWilliams', serif; font-size: 45px; color: #4A45AA; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.2s ease;"></button>
+                <button class="xo-cell" data-cell="4" style="background: none; border: none; font-family: 'QEJohnWilliams', serif; font-size: 45px; color: #4A45AA; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.2s ease;"></button>
+                <button class="xo-cell" data-cell="5" style="background: none; border: none; font-family: 'QEJohnWilliams', serif; font-size: 45px; color: #4A45AA; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.2s ease;"></button>
+                <button class="xo-cell" data-cell="6" style="background: none; border: none; font-family: 'QEJohnWilliams', serif; font-size: 45px; color: #4A45AA; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.2s ease;"></button>
+                <button class="xo-cell" data-cell="7" style="background: none; border: none; font-family: 'QEJohnWilliams', serif; font-size: 45px; color: #4A45AA; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.2s ease;"></button>
+                <button class="xo-cell" data-cell="8" style="background: none; border: none; font-family: 'QEJohnWilliams', serif; font-size: 45px; color: #4A45AA; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.2s ease;"></button>
+            </div>
+        </div>
+        
+        <!-- Control Panel -->
+        <div class="xo-controls" style="display: flex; flex-direction: column; align-items: center; gap: 10px;">
+            <button id="reset-game" style="
+  background: linear-gradient(145deg, #FFB3BA, #F69F9B, #E8888F);
+  color: #6A1D27;
+  border: none;
+  padding: 16px 54px;
+  border-radius: 14px;
+  font-family: 'QEJohnWilliams', serif;
+  font-size: 18px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 
+    inset -4px -4px 8px rgba(255, 255, 255, 0.6),  /* top-left highlight */
+    inset 4px 4px 8px rgba(0, 0, 0, 0.1),          /* bottom-right shadow */            
+  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.6);
+">
+  Erase
+</button>
+
+        </div>
+    </div>
+</div>
+<span class="page-number" style="font-family: 'QEAntonyLark', serif; font-size: 20px; color: #807dba;">37</span>
+
+<style>
+/* XO Game Specific Styles */
+.xo-cell:disabled {
+    cursor: not-allowed !important;
+}
+
+/* Grid Animation */
+.grid-line {
+    opacity: 0;
+    animation: drawLine 0.8s ease-out forwards;
+}
+
+.horizontal-line-1 { animation-delay: 0.2s; }
+.vertical-line-1 { animation-delay: 0.4s; }
+.horizontal-line-2 { animation-delay: 0.6s; }
+.vertical-line-2 { animation-delay: 0.8s; }
+
+@keyframes drawLine {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Cell animation for moves */
+.xo-cell.animate-move {
+    animation: placeMark 0.3s ease-out;
+}
+
+@keyframes placeMark {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Winner highlight */
+.winning-cell {
+    background-color: rgba(74, 69, 170, 0.2) !important;
+    animation: winningPulse 1s ease-in-out infinite;
+}
+
+@keyframes winningPulse {
+    0%, 100% {
+        background-color: rgba(74, 69, 170, 0.2);
+    }
+    50% {
+        background-color: rgba(74, 69, 170, 0.4);
+    }
+}
+</style>
+
+<script>
+// XO Game Logic
+(function() {
+    'use strict';
+    
+    class XOGame {
+        constructor() {
+            this.board = Array(9).fill('');
+            this.currentPlayer = 'X';
+            this.gameActive = true;
+            this.playerScore = 0;
+            this.aiScore = 0;
+            this.winningCombinations = [
+                [0, 1, 2], [3, 4, 5], [6, 7, 8], // Rows
+                [0, 3, 6], [1, 4, 7], [2, 5, 8], // Columns
+                [0, 4, 8], [2, 4, 6] // Diagonals
+            ];
+            
+            this.init();
+        }
+        
+        init() {
+            this.cells = document.querySelectorAll('.xo-cell');
+            this.statusDisplay = document.getElementById('game-status');
+            this.resetButton = document.getElementById('reset-game');
+            this.playerScoreDisplay = document.getElementById('player-score');
+            this.aiScoreDisplay = document.getElementById('ai-score');
+            this.strikeLine = document.querySelector('.strike-line');
+            
+            this.attachEventListeners();
+            this.animateGrid();
+        }
+        
+        attachEventListeners() {
+            this.cells.forEach(cell => {
+                cell.addEventListener('click', this.handleCellClick.bind(this));
+            });
+            
+            this.resetButton.addEventListener('click', this.resetGame.bind(this));
+        }
+        
+        animateGrid() {
+            // Grid lines will animate via CSS
+            setTimeout(() => {
+                if (this.statusDisplay) {
+                    this.statusDisplay.textContent = 'Your turn (X)';
+                }
+            }, 1000);
+        }
+        
+        handleCellClick(event) {
+            const cell = event.target;
+            const cellIndex = parseInt(cell.getAttribute('data-cell'));
+            
+            if (this.board[cellIndex] !== '' || !this.gameActive || this.currentPlayer !== 'X') {
+                return;
+            }
+            
+            this.makeMove(cellIndex, 'X');
+            
+            if (this.gameActive && this.currentPlayer === 'O') {
+                setTimeout(() => {
+                    this.makeAIMove();
+                }, 500);
+            }
+        }
+        
+        makeMove(cellIndex, player) {
+            this.board[cellIndex] = player;
+            const cell = this.cells[cellIndex];
+            
+            // Animate the move
+            cell.classList.add('animate-move');
+            cell.textContent = player;
+            cell.disabled = true;
+            
+            // Remove animation class after animation completes
+            setTimeout(() => {
+                cell.classList.remove('animate-move');
+            }, 300);
+            
+            if (this.checkWinner()) {
+                this.handleGameEnd(player);
+            } else if (this.isBoardFull()) {
+                this.handleGameEnd('draw');
+            } else {
+                this.currentPlayer = player === 'X' ? 'O' : 'X';
+                this.updateStatus();
+            }
+        }
+        
+        makeAIMove() {
+            if (!this.gameActive) return;
+            
+            const emptyCells = this.board.map((cell, index) => cell === '' ? index : null)
+                                        .filter(cell => cell !== null);
+            
+            if (emptyCells.length === 0) return;
+            
+            // Simple AI: Try to win, then block player, then random
+            let moveIndex = this.findWinningMove('O');
+            if (moveIndex === -1) {
+                moveIndex = this.findWinningMove('X'); // Block player
+            }
+            if (moveIndex === -1) {
+                // Random move
+                moveIndex = emptyCells[Math.floor(Math.random() * emptyCells.length)];
+            }
+            
+            this.makeMove(moveIndex, 'O');
+        }
+        
+        findWinningMove(player) {
+            for (let combination of this.winningCombinations) {
+                const [a, b, c] = combination;
+                const line = [this.board[a], this.board[b], this.board[c]];
+                
+                if (line.filter(cell => cell === player).length === 2 && 
+                    line.filter(cell => cell === '').length === 1) {
+                    return combination[line.indexOf('')];
+                }
+            }
+            return -1;
+        }
+        
+        getStrikeCoordinates(combination) {
+            // Grid cell centers (each cell is ~93.33px)
+            const cellSize = 280 / 3;
+            const cellCenter = cellSize / 2;
+            
+            const coordinates = {
+                // Rows
+                0: [cellCenter, cellCenter, cellCenter * 5, cellCenter], // Row 1
+                1: [cellCenter, cellCenter * 3, cellCenter * 5, cellCenter * 3], // Row 2  
+                2: [cellCenter, cellCenter * 5, cellCenter * 5, cellCenter * 5], // Row 3
+                // Columns
+                3: [cellCenter, cellCenter, cellCenter, cellCenter * 5], // Col 1
+                4: [cellCenter * 3, cellCenter, cellCenter * 3, cellCenter * 5], // Col 2
+                5: [cellCenter * 5, cellCenter, cellCenter * 5, cellCenter * 5], // Col 3
+                // Diagonals
+                6: [cellCenter, cellCenter, cellCenter * 5, cellCenter * 5], // Top-left to bottom-right
+                7: [cellCenter * 5, cellCenter, cellCenter, cellCenter * 5] // Top-right to bottom-left
+            };
+            
+            // Map winning combinations to coordinate indices
+            const combinationMap = {
+                '0,1,2': 0, '3,4,5': 1, '6,7,8': 2, // Rows
+                '0,3,6': 3, '1,4,7': 4, '2,5,8': 5, // Columns  
+                '0,4,8': 6, '2,4,6': 7 // Diagonals
+            };
+            
+            const key = combination.join(',');
+            const coordIndex = combinationMap[key];
+            return coordinates[coordIndex];
+        }
+        
+        checkWinner() {
+            for (let combination of this.winningCombinations) {
+                const [a, b, c] = combination;
+                if (this.board[a] && 
+                    this.board[a] === this.board[b] && 
+                    this.board[a] === this.board[c]) {
+                    
+                    // Highlight winning cells
+                    combination.forEach(index => {
+                        this.cells[index].classList.add('winning-cell');
+                    });
+                    
+                    // Draw strike line
+                    this.drawStrikeLine(combination);
+                    
+                    return this.board[a];
+                }
+            }
+            return null;
+        }
+        
+        drawStrikeLine(combination) {
+            if (!this.strikeLine) return;
+            
+            const coords = this.getStrikeCoordinates(combination);
+            if (!coords) return;
+            
+            const [x1, y1, x2, y2] = coords;
+            
+            // Set line coordinates
+            this.strikeLine.setAttribute('x1', x1);
+            this.strikeLine.setAttribute('y1', y1);
+            this.strikeLine.setAttribute('x2', x2);
+            this.strikeLine.setAttribute('y2', y2);
+            
+            // Make visible and animate
+            this.strikeLine.style.opacity = '1';
+            setTimeout(() => {
+                this.strikeLine.style.strokeDashoffset = '0';
+            }, 100);
+        }
+        
+        isBoardFull() {
+            return this.board.every(cell => cell !== '');
+        }
+        
+        handleGameEnd(result) {
+            this.gameActive = false;
+            
+            if (result === 'X') {
+                this.playerScore++;
+                if (this.statusDisplay) {
+                    this.statusDisplay.textContent = 'You win! 🎉';
+                }
+                if (this.playerScoreDisplay) {
+                    this.playerScoreDisplay.textContent = this.playerScore;
+                }
+            } else if (result === 'O') {
+                this.aiScore++;
+                if (this.statusDisplay) {
+                    this.statusDisplay.textContent = 'AI wins! 🤖';
+                }
+                if (this.aiScoreDisplay) {
+                    this.aiScoreDisplay.textContent = this.aiScore;
+                }
+            } else {
+                if (this.statusDisplay) {
+                    this.statusDisplay.textContent = "It's a draw! 🤝";
+                }
+            }
+            
+            // Disable all cells
+            this.cells.forEach(cell => {
+                cell.disabled = true;
+            });
+        }
+        
+        updateStatus() {
+            if (this.statusDisplay) {
+                if (this.currentPlayer === 'X') {
+                    this.statusDisplay.textContent = 'Your turn (X)';
+                } else {
+                    this.statusDisplay.textContent = 'AI thinking... 🤔';
+                }
+            }
+        }
+        
+        resetGame() {
+            this.board = Array(9).fill('');
+            this.currentPlayer = 'X';
+            this.gameActive = true;
+            
+            this.cells.forEach(cell => {
+                cell.textContent = '';
+                cell.disabled = false;
+                cell.classList.remove('winning-cell', 'animate-move');
+            });
+            
+            // Clear strike line
+            if (this.strikeLine) {
+                this.strikeLine.style.opacity = '0';
+                this.strikeLine.style.strokeDashoffset = '300';
+            }
+            
+            if (this.statusDisplay) {
+                this.statusDisplay.textContent = 'Your turn (X)';
+            }
+        }
+    }
+    
+    // Initialize the game when the page loads
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', () => {
+            new XOGame();
+        });
+    } else {
+        new XOGame();
+    }
+})();
+</script>
