@@ -1,6 +1,11 @@
 /*  book */
 
-/* Removed Stempel-Garamond font as it doesn't exist */
+@font-face {
+  font-family: 'Stempel-Garamond-W01-Roman';
+  font-style: normal;
+  font-weight: normal;
+  src: url('../fonts/Stempel-Garamond-W01-Roman.woff') format('woff');
+}
 
 body, ul, table, form{
 	margin:0;
@@ -42,7 +47,7 @@ body, ul, table, form{
  
 
 .gg-book h1{
-	font-family: "QEGHHughes", serif;
+	font-family: "Stempel-Garamond-W01-Roman";
 	font-size: 38px;
 	font-weight: lighter;
 	margin: 20px 0;
@@ -61,7 +66,7 @@ body, ul, table, form{
 }
 
 .gg-book .book-content{
-	font-family: "QEGHHughes", serif;
+	font-family: "Stempel-Garamond-W01-Roman";
 	font-size:16px;
 	margin:70px 40px;
 }
