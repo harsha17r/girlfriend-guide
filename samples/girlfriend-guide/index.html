@@ -120,6 +120,114 @@
     color: #ffd747;
     text-decoration: underline;
   }
+
+  /* Mobile and Tablet Layout */
+  .mobile-layout {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
+    padding: 20px;
+    box-sizing: border-box;
+    background: #FDF7E6;
+    font-family: 'IBM Plex Sans', 'IBM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    color: #4A45AA;
+    text-align: center;
+  }
+
+  .mobile-logo {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .mobile-logo svg {
+    width: 120px;
+    height: auto;
+    max-width: 100%;
+	color: #4A45AA;
+  }
+
+  .mobile-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+  }
+
+  .mobile-book-image {
+    width: 100%;
+    max-width: 160px;
+    height: auto;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+	margin-bottom: 40px;
+  }
+
+  .mobile-message {
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.4;
+    max-width: 500px;
+    margin: 0 auto;
+    color: #4A45AA;
+  }
+
+  .mobile-credit {
+    margin-bottom: 20px;
+    font-size: 14px;
+    font-weight: 400;
+    color: #4A45AA;
+    opacity: 0.9;
+  }
+
+  .mobile-credit a {
+    color: #4A45AA;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+  }
+
+  .mobile-credit a:hover {
+    color: #f566ff;
+    text-decoration: underline;
+  }
+
+  /* Media Queries for Mobile and Tablet */
+  @media screen and (max-width: 1024px) {
+    .center-viewport {
+      display: none !important;
+    }
+    
+    .mobile-layout {
+      display: flex !important;
+    }
+    
+    #gg-logo-container {
+      display: none !important;
+    }
+    
+    #unicorn-bg {
+      display: none !important;
+    }
+  }
+
+  /* Smaller mobile devices */
+  @media screen and (max-width: 480px) {
+    .mobile-message {
+      font-size: 16px;
+    }
+    
+    .mobile-book-image {
+      max-width: 160px;
+    }
+    
+    .mobile-logo svg {
+      width: 100px;
+    }
+  }
 </style>
 
 <!--
@@ -188,6 +296,23 @@
   
   <!-- Vibecoded by credit -->
   <div id="vibecoded-credit">
+    vibecoded by <a href="https://iknowharsha.framer.website/" target="_blank">this human</a>
+  </div>
+</div>
+
+<!-- Mobile and Tablet Layout -->
+<div class="mobile-layout">
+  <!-- Logo at top -->
+  
+  
+  <!-- Center content -->
+  <div class="mobile-content">
+    <img src="pics/book-image-mobile-tab.png" alt="Girlfriend Guide Book" class="mobile-book-image">
+    <p class="mobile-message">Heads up! <br>This site looks way better on desktop. Hop on to a bigger screen to have a better experience.</p>
+  </div>
+  
+  <!-- Bottom credit -->
+  <div class="mobile-credit">
     vibecoded by <a href="https://iknowharsha.framer.website/" target="_blank">this human</a>
   </div>
 </div>
