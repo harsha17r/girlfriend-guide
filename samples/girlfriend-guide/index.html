@@ -72,6 +72,27 @@
     height: 100%;
     display: block;
   }
+
+  /* Navigate button styling */
+  #navigate-button {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    z-index: 10;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+    cursor: pointer;
+  }
+  
+  #navigate-button:hover {
+    opacity: 1;
+  }
+  
+  #navigate-button img {
+    height: 32px;
+    width: auto;
+    display: block;
+  }
 </style>
 
 <!--
@@ -131,6 +152,11 @@
   </div>
   <div id="slider-bar" class="turnjs-slider">
 	<div id="slider"></div>
+  </div>
+  
+  <!-- Navigate button -->
+  <div id="navigate-button">
+    <img src="pics/Navigate.png" alt="Navigate" />
   </div>
 </div>
 

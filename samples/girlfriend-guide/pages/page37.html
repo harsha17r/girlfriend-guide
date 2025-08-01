@@ -44,6 +44,11 @@
         
         <!-- Control Panel -->
         <div class="xo-controls" style="display: flex; flex-direction: column; align-items: center; gap: 10px;">
+            <!-- HOVER EFFECTS - ADJUSTABLE VALUES:
+                 POP-UP HEIGHT: Change -3px to -1px or -2px for less pop-up
+                 SHADOW SPREAD: Change 8px 16px to 4px 8px for less spread
+                 SHADOW INTENSITY: Change 0.15 to 0.1 for softer shadows
+                 PRESS DEPTH: Change 1px to 0.5px for less press effect -->
             <button id="reset-game" style="
   background: linear-gradient(145deg, #FFB3BA, #F69F9B, #E8888F);
   color: #6A1D27;
@@ -53,11 +58,21 @@
   font-family: 'QEJohnWilliams', serif;
   font-size: 18px;
   cursor: pointer;
-  transition: all 0.2s ease;
+  margin-top: 20px;
+  rotate: -4deg;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   box-shadow: 
     inset -12px 0px 4px rgba(255, 255, 255, 0.3),  /* top-left highlight */
-    inset 4px 0px 10px rgba(0, 0, 0, 0.1);        /* bottom-right shadow */       
-">
+    inset 4px 0px 10px rgba(0, 0, 0, 0.1),        /* bottom-right shadow */
+    0 2px 4px rgba(0, 0, 0, 0.1),                  /* subtle outer shadow */
+    0 1px 2px rgba(0, 0, 0, 0.05);                 /* very subtle shadow */
+  transform: translateY(0);
+"
+onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='inset -12px 0px 4px rgba(255, 255, 255, 0.3), inset 4px 0px 10px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.15), 0 4px 8px rgba(0, 0, 0, 0.1)';"
+onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='inset -12px 0px 4px rgba(255, 255, 255, 0.3), inset 4px 0px 10px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.05)';"
+onmousedown="this.style.transform='translateY(1px)'; this.style.boxShadow='inset -12px 0px 4px rgba(255, 255, 255, 0.3), inset 4px 0px 10px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.1)';"
+onmouseup="this.style.transform='translateY(-3px)'; this.style.boxShadow='inset -12px 0px 4px rgba(255, 255, 255, 0.3), inset 4px 0px 10px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.15), 0 4px 8px rgba(0, 0, 0, 0.1)';"
+>
   Erase
 </button>
 
