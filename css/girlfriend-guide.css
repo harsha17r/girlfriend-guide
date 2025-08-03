@@ -1,11 +1,6 @@
 /*  book */
 
-@font-face {
-  font-family: 'Stempel-Garamond-W01-Roman';
-  font-style: normal;
-  font-weight: normal;
-  src: url('../fonts/Stempel-Garamond-W01-Roman.woff') format('woff');
-}
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
 body, ul, table, form{
 	margin:0;
@@ -47,7 +42,7 @@ body, ul, table, form{
  
 
 .gg-book h1{
-	font-family: "Stempel-Garamond-W01-Roman";
+	font-family: "Inter", sans-serif;
 	font-size: 38px;
 	font-weight: lighter;
 	margin: 20px 0;
@@ -66,7 +61,7 @@ body, ul, table, form{
 }
 
 .gg-book .book-content{
-	font-family: "Stempel-Garamond-W01-Roman";
+	font-family: "Inter", sans-serif;
 	font-size:16px;
 	margin:70px 40px;
 }
