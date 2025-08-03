@@ -92,6 +92,23 @@
     display: block;
   }
 
+  /* Refresh instruction styling */
+  #refresh-instruction {
+    position: fixed;
+    bottom: 45px;
+    right: 20px;
+    z-index: 10;
+    font-family: 'IBM Plex Sans', 'IBM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: #FDF7E6;
+    opacity: 0.8;
+    text-align: right;
+    line-height: 1.2;
+  }
+
+
+
   /* Vibecoded credit styling */
   #vibecoded-credit {
     position: fixed;
@@ -99,10 +116,10 @@
     right: 20px;
     z-index: 10;
     font-family: 'IBM Plex Sans', 'IBM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    font-size: 13px;
+    font-size: 14px;
     font-weight: 400;
     color: #FDF7E6;
-    opacity: 0.9;
+    opacity: 1;
     text-align: right;
     line-height: 1.2;
   }
@@ -295,6 +312,11 @@
   <!-- Navigate button -->
   <div id="navigate-button">
     <img src="pics/Navigate.png" alt="Navigate" />
+  </div>
+  
+  <!-- Refresh instruction -->
+  <div id="refresh-instruction">
+    Content not loading? <br> Press Cmd+Shift+R (Mac) / Ctrl+Shift+R (Win)
   </div>
   
   <!-- Vibecoded by credit -->
