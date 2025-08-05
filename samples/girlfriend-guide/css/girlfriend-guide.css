@@ -426,8 +426,8 @@ body, ul, table, form{
   left: 0px; /* Padding from left edge, adjust as needed */
   right: 0px; /* Padding from right edge, adjust as needed */
   top: 50%;
-  height: 6px; /* Track thickness */
-  background: #e9e9e9; /* Track color, edit as needed */
+  height: 4px; /* Track thickness */
+  background: #DBDAEF; /* Track color, edit as needed */
   border-radius: 2px; /* Track roundness */
   transform: translateY(-50%);
   z-index: -2;

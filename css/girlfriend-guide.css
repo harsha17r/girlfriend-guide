@@ -435,7 +435,7 @@ body, ul, table, form{
 
 /* Ensure the handle is above the track */
 #slider .ui-slider-handle {
-  z-index: 10;
+  z-index: 100;
 }
 
 /* --- Slider Handle Styling --- */
@@ -448,10 +448,8 @@ body, ul, table, form{
   box-shadow: none;
   border-radius: 0;
   top: 50%;
-  transform: translate(-50%, -50%) rotate(var(--slider-rotate, 0deg));
   opacity: 0.8;
-  transition: opacity 0.2s, transform 0.4s cubic-bezier(0.4, 0.2, 0.2, 1);
-  z-index: 10;
+  z-index: 150;
 
 }
 

@@ -74,6 +74,43 @@
     }
     /* IBM Plex Sans is loaded via Google Fonts */
   </style>
+<style>
+/* --- Slider Checkpoints Styling --- */
+#slider .slider-checkpoint {
+  position: absolute;
+  top: 50%;
+  width: 12px;
+  height: 12px;
+  background: #DBDAEF;
+  border: 2px  transparent;
+  opacity: 1;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+  z-index: 60;
+}
+#slider .slider-checkpoint:hover { opacity: 0.9; }
+#slider .slider-checkpoint::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  top: -37px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #000;
+  color: #fff;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 13px;
+  padding: 4px 6px;
+  border-radius: 4px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s;
+}
+#slider .slider-checkpoint:hover::after { opacity: 1; }
+/* Ensure slider handle stays on top */
+#slider .ui-slider-handle { z-index: 120 !important; }
+</style>
 </head>
 <body>
 
@@ -630,5 +667,36 @@ yepnope({
 
 </script>
 
+<script>
+(function() {
+  function createSliderCheckpoints() {
+    var book = $('.gg-book');
+    if (!book.length) return;
+    var sliderMax = $('#slider').slider('option', 'max');
+    if (!sliderMax) return;
+    $('#slider').find('.slider-checkpoint').remove();
+    var checkpoints = [
+      { page: 7, label: 'Intel gathering' },
+      { page: 13, label: 'Decoding GF language' },
+      { page: 19, label: 'BF upgrade manual' },
+      { page: 25, label: 'Non negotiable protocols' },
+      { page: 31, label: 'Emergency protocol' }
+    ];
+    checkpoints.forEach(function(cp) {
+      var view = getViewNumber(book, cp.page);
+      var pos = ((view - 1) / (sliderMax - 1)) * 100;
+      $('<div/>', { 'class': 'slider-checkpoint', 'data-tooltip': cp.label, 'title': cp.label })
+        .css('left', pos + '%')
+        .appendTo('#slider');
+    });
+  }
+  var interval = setInterval(function() {
+    if ($('#slider').length && $('#slider').hasClass('ui-slider') && typeof getViewNumber === 'function') {
+      clearInterval(interval);
+      createSliderCheckpoints();
+    }
+  }, 200);
+})();
+</script>
 </body>
 </html>
